@@ -6015,6 +6015,20 @@ ra-core@^2.0.0-RC2:
     reselect "~3.0.0"
     warning "~3.0.0"
 
+ra-data-json-server@^2.0.0-RC2:
+  version "2.0.0-RC2"
+  resolved "https://registry.yarnpkg.com/ra-data-json-server/-/ra-data-json-server-2.0.0-RC2.tgz#4eb4181b814e64330964c0ac9a0be38e25f64862"
+  dependencies:
+    query-string "~5.1.1"
+    react-admin "^2.0.0-RC2"
+
+ra-data-simple-rest@^2.0.0-RC2:
+  version "2.0.0-RC2"
+  resolved "https://registry.yarnpkg.com/ra-data-simple-rest/-/ra-data-simple-rest-2.0.0-RC2.tgz#f1a991fc4dbfca8c78e312071360da87cab92b45"
+  dependencies:
+    query-string "~5.1.1"
+    react-admin "^2.0.0-RC2"
+
 ra-language-english@^2.0.0-RC2:
   version "2.0.0-RC2"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-2.0.0-RC2.tgz#cf0cee5c82e89f3b74f7608eac2338cb6d91f576"
