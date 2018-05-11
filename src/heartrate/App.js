@@ -24,31 +24,14 @@ import {
 import { UserList, UserEdit, UserCreate, UserIcon, UserShow } from './users';
 import { DoctorList, DoctorEdit, DoctorCreate, DoctorIcon, DoctorShow } from './doctors';
 import { PatientList, PatientEdit, PatientCreate, PatientIcon, PatientShow } from './patients';
+
+import { PulseList, PulseEdit, PulseCreate } from './pulses';
+import PulseIcon from '@material-ui/icons/People';
+
 //import dataProvider from './dataProvider';
 
-const dataProvider = jsonServerProvider('http://35.232.234.165:3001');
-
-const App1 = () => (
-    <Admin 
-    dataProvider={dataProvider}
-    dashboard={Dashboard}
-    authProvider={authProvider}
-    title="Cloud-Based Realtime Heart Rate Monitoring System"
-    >
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-        <Resource name="users" list={UserList} icon={UserIcon} />
-
-        <Resource
-                    name="doctors"
-                    list={DoctorList}
-                    create={DoctorCreate}
-                    edit={DoctorEdit}
-                    icon={DoctorIcon}
-                    show={DoctorShow}
-        />
-
-    </Admin>
-);
+//var dataProvider = jsonServerProvider('https://35.232.234.165:3001');
+var dataProvider = jsonServerProvider('http://localhost:3001');
 
 const App = () => (
     <Admin
@@ -91,7 +74,6 @@ const App = () => (
                     icon={DoctorIcon}
                     show={DoctorShow}
             />,
-            ,
             <Resource
                     name="patients"
                     list={PatientList}
@@ -100,6 +82,8 @@ const App = () => (
                     icon={PatientIcon}
                     show={PatientShow}
             />,
+            <Resource name="pulses" list={PulseList} edit={PulseEdit} create={PulseCreate} icon={PulseIcon}/>
+            ,
             permissions ? (
                 <Resource
                     name="users"
