@@ -28,7 +28,6 @@ export default (type, params) => {
         localStorage.setItem('not_authenticated', true);
         return Promise.reject();
     }
-    
     if (type === AUTH_LOGOUT) {
         localStorage.setItem('not_authenticated', true);
         localStorage.removeItem('role');

@@ -1,16 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Admin, Resource } from 'react-admin';
 import { Route } from 'react-router';
-import jsonServerProvider from 'ra-data-json-server';
-//import PostIcon from '@material-ui/icons/Book';
-//import UserIcon from '@material-ui/icons/Group';
-import Dashboard from './Dashboard';
-import authProvider from './authProvider';
 
-//others
-import CustomRouteNoLayout from './components/customRouteNoLayout';
-import CustomRouteLayout from './components/customRouteLayout';
+import { Admin, Resource } from 'react-admin';
 
 import { PostList, PostCreate, PostEdit, PostShow, PostIcon } from './posts';
 import {
@@ -20,35 +12,14 @@ import {
     CommentShow,
     CommentIcon,
 } from './comments';
-// health system
 import { UserList, UserEdit, UserCreate, UserIcon, UserShow } from './users';
 import { DoctorList, DoctorEdit, DoctorCreate, DoctorIcon, DoctorShow } from './doctors';
 import { PatientList, PatientEdit, PatientCreate, PatientIcon, PatientShow } from './patients';
-//import dataProvider from './dataProvider';
+import CustomRouteNoLayout from './components/customRouteNoLayout';
+import CustomRouteLayout from './components/customRouteLayout';
 
-const dataProvider = jsonServerProvider('http://localhost:3001');
-
-const App1 = () => (
-    <Admin 
-    dataProvider={dataProvider}
-    dashboard={Dashboard}
-    authProvider={authProvider}
-    title="Cloud-Based Realtime Heart Rate Monitoring System"
-    >
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-        <Resource name="users" list={UserList} icon={UserIcon} />
-
-        <Resource
-                    name="doctors"
-                    list={DoctorList}
-                    create={DoctorCreate}
-                    edit={DoctorEdit}
-                    icon={DoctorIcon}
-                    show={DoctorShow}
-        />
-
-    </Admin>
-);
+import authProvider from './authProvider';
+import dataProvider from './dataProvider';
 
 const App = () => (
     <Admin

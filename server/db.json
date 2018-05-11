@@ -1,5 +1,31 @@
 {
+  "posts": [
+    {
+      "average_note": 0,
+      "published_at": "2018-05-11T02:51:58.785Z",
+      "commentable": true,
+      "title": "Title1",
+      "body": "<p>Body</p>",
+      "teaser": "Teaser1",
+      "id": 1
+    }
+  ],
+  "comments": [],
+  "tags": [],
+  "users": [
+    {
+      "role": "user",
+      "name": "developer",
+      "id": 1
+    }
+  ],
   "doctors": [],
-  "patients": [],
+  "patients": [
+    {
+      "role": "user",
+      "name": "patient1",
+      "id": 1
+    }
+  ],
   "pulses": []
 }
