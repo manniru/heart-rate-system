@@ -31,9 +31,19 @@
   "doctors": [],
   "patients": [
     {
-      "role": "user",
+      "role": "patient",
       "name": "patient1",
       "id": 1
+    },
+    {
+      "role": "patient",
+      "name": "patient2",
+      "id": 2
+    },
+    {
+      "role": "patient",
+      "name": "patient3",
+      "id": 3
     }
   ],
   "pulses": [
@@ -45,18 +55,32 @@
       "id": 1
     },
     {
-      "patientId": 4,
-      "timestamp": 1526011038716,
-      "bpm": 120,
+      "patientId": 2,
+      "timestamp": 1526012740765,
+      "bpm": 79,
       "status": 0,
       "id": 2
     },
     {
-      "patientId": 3,
-      "timestamp": 1526011043052,
-      "bpm": 196,
+      "patientId": 2,
+      "timestamp": 1526012745618,
+      "bpm": 197,
       "status": 0,
       "id": 3
+    },
+    {
+      "patientId": 2,
+      "timestamp": 1526012750153,
+      "bpm": 86,
+      "status": 0,
+      "id": 4
+    },
+    {
+      "patientId": 3,
+      "timestamp": 1526025739424,
+      "bpm": 117,
+      "status": 0,
+      "id": 6
     }
   ]
 }

@@ -1,10 +1,66 @@
 import React from 'react';
-import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, DisabledInput, TextInput, NumberInput, LongTextInput, DateInput } from 'react-admin';
+
+import {
+    Create,
+    Datagrid,
+    DisabledInput,
+    Edit,
+    EditButton,
+    Filter,
+    FormTab,
+    List,
+    Responsive,
+    SaveButton,
+    Show,
+    ShowButton,
+    SimpleForm,
+    SimpleList,
+    Tab,
+    TabbedForm,
+    TabbedShowLayout,
+    TextField,
+    TextInput,
+    NumberInput,
+    Toolbar,
+    required,
+    translate,
+    InputAdornment,
+    SearchIcon,
+} from 'react-admin';
 
 var faker = require('faker');
+//const token = localStorage.getItem('token');
+//filter={{ patientId: 3 }}
 
-export const PulseList = (props) => (
-    <List {...props}>
+const PulseFilter = ({ permissions, ...props }) => (
+    <Filter {...props}>
+        <TextInput
+            label="user.list.search"
+            source="q"
+            alwaysOn
+            InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                        <SearchIcon color="disabled" />
+                    </InputAdornment>
+                ),
+            }}
+        />
+        <TextInput source="name" />
+        {permissions === 'admin' ? <TextInput source="role" /> : null}
+    </Filter>
+);
+
+const patientId = (localStorage.getItem('patientId') ? localStorage.getItem('patientId') : 1)
+const role = localStorage.getItem('role');
+
+console.log('username='+localStorage.getItem('username'))
+
+export const PulseList1 = ({ permissions, ...props }) => (
+    <List 
+    {...props} 
+    filter={{ patientId: patientId }}
+    >
         <Datagrid>
             <TextField source='id' />
             <TextField source='patientId' />
@@ -15,6 +71,43 @@ export const PulseList = (props) => (
         </Datagrid>
     </List>
 );
+
+export const PulseList = ({ permissions, ...props }) => {
+    console.log(+ new Date())
+    return <span>mm
+
+   {permissions === 'admin' && (
+            <List {...props}>
+        <Datagrid>
+                <TextField source='id' />
+                <TextField source='patientId' />
+                <TextField source='timestamp' />
+                <TextField source='bpm' />
+                <TextField source='status' />
+                <EditButton basePath="/pulses" />
+            </Datagrid>
+        </List>
+    )}
+
+
+    {permissions === 'patient' && (
+            <List 
+            {...props} 
+            filter={{ patientId: patientId }}
+            >
+                <Datagrid>
+                    <TextField source='id' />
+                    <TextField source='patientId' />
+                    <TextField source='timestamp' />
+                    <TextField source='bpm' />
+                    <TextField source='status' />
+                    <EditButton basePath="/pulses" />
+                </Datagrid>
+            </List>
+    )}
+            
+    </span>;
+};
 
 const PulseTitle = ({ record }) => {
     return <span>Pulse {record ? `"${record.patientId}"` : ''}</span>;

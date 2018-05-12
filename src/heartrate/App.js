@@ -7,6 +7,7 @@ import jsonServerProvider from 'ra-data-json-server';
 //import UserIcon from '@material-ui/icons/Group';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
+import PulseIcon from '@material-ui/icons/People';
 
 //others
 import CustomRouteNoLayout from './components/customRouteNoLayout';
@@ -24,9 +25,10 @@ import {
 import { UserList, UserEdit, UserCreate, UserIcon, UserShow } from './users';
 import { DoctorList, DoctorEdit, DoctorCreate, DoctorIcon, DoctorShow } from './doctors';
 import { PatientList, PatientEdit, PatientCreate, PatientIcon, PatientShow } from './patients';
-
-import { PulseList, PulseEdit, PulseCreate } from './pulses';
-import PulseIcon from '@material-ui/icons/People';
+import { PulseList, PulseEdit, PulseCreate, PulseFilter } from './pulses';
+import Page1 from './Page1'
+import Page2 from './Page2'
+import Page3 from './Page3'
 
 //import dataProvider from './dataProvider';
 
@@ -35,7 +37,7 @@ var dataProvider = jsonServerProvider('http://localhost:3001');
 
 const App = () => (
     <Admin
-        title="Cloud-Based Realtime Heart Rate Monitoring System"
+        title={"Cloud-Based Realtime Heart Rate Monitoring System: " + localStorage.getItem("role")}
         authProvider={authProvider}
         dataProvider={dataProvider}
         customRoutes={[
@@ -46,26 +48,29 @@ const App = () => (
                 noLayout
             />,
             <Route exact path="/custom2" component={CustomRouteLayout} />,
+            <Route exact path="/page1" component={Page1} />,
+            <Route exact path="/page2" component={Page2} />,
+            <Route exact path="/page3" component={Page3} />,
         ]}
     >
         {
             permissions => [
-            <Resource
-                name="posts"
-                list={PostList}
-                create={PostCreate}
-                edit={PostEdit}
-                show={PostShow}
-                icon={PostIcon}
-            />,
-            <Resource
-                name="comments"
-                list={CommentList}
-                create={CommentCreate}
-                edit={CommentEdit}
-                show={CommentShow}
-                icon={CommentIcon}
-            />,
+            // <Resource
+            //     name="posts"
+            //     list={PostList}
+            //     create={PostCreate}
+            //     edit={PostEdit}
+            //     show={PostShow}
+            //     icon={PostIcon}
+            // />,
+            // <Resource
+            //     name="comments"
+            //     list={CommentList}
+            //     create={CommentCreate}
+            //     edit={CommentEdit}
+            //     show={CommentShow}
+            //     icon={CommentIcon}
+            // />,
             <Resource
                     name="doctors"
                     list={DoctorList}
