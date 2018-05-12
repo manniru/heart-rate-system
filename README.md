@@ -9,3 +9,8 @@ json-server --watch db.json -p 3001
 cd /Users/mannir/GitHub/heart-rate-system
 REACT_APP_DEV_API_URL=http://localhost:3001 yarn start
 ```
+## Building
+```
+yarn build
+firebase deploy
+```
