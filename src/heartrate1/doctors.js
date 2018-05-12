@@ -26,9 +26,9 @@ import {
 import { InputAdornment } from 'material-ui/Input';
 import PeopleIcon from '@material-ui/icons/People';
 import SearchIcon from '@material-ui/icons/Search';
-export const PatientIcon = PeopleIcon;
+export const DoctorIcon = PeopleIcon;
 
-const PatientFilter = ({ permissions, ...props }) => (
+const DoctorFilter = ({ permissions, ...props }) => (
     <Filter {...props}>
         <TextInput
             label="user.list.search"
@@ -47,10 +47,10 @@ const PatientFilter = ({ permissions, ...props }) => (
     </Filter>
 );
 
-export const PatientList = ({ permissions, ...props }) => (
+export const DoctorList = ({ permissions, ...props }) => (
     <List
         {...props}
-        filters={<PatientFilter permissions={permissions} />}
+        filters={<DoctorFilter permissions={permissions} />}
         sort={{ field: 'name', order: 'ASC' }}
     >
         <Responsive
@@ -63,12 +63,9 @@ export const PatientList = ({ permissions, ...props }) => (
             }
             medium={
                 <Datagrid hover={false}>
-                    <TextField source='id' />
-                    <TextField source='name' />
-                    <TextField source='password' />
-                    <TextField source='role' />
-                    <TextField source='phone' />
-                    <TextField source='timestamp' />
+                    <TextField source="id" />
+                    <TextField source="name" />
+                    {permissions === 'admin' && <TextField source="role" />}
                     <EditButton />
                     <ShowButton />
                 </Datagrid>
@@ -77,13 +74,13 @@ export const PatientList = ({ permissions, ...props }) => (
     </List>
 );
 
-const PatientTitle = translate(({ record, translate }) => (
+const DoctorTitle = translate(({ record, translate }) => (
     <span>
         {record ? translate('user.edit.title', { title: record.name }) : ''}
     </span>
 ));
 
-const PatientCreateToolbar = ({ permissions, ...props }) => (
+const DoctorCreateToolbar = ({ permissions, ...props }) => (
     <Toolbar {...props}>
         <SaveButton
             label="user.action.save_and_show"
@@ -101,23 +98,22 @@ const PatientCreateToolbar = ({ permissions, ...props }) => (
     </Toolbar>
 );
 
-export const PatientCreate = ({ permissions, ...props }) => (
+export const DoctorCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm
-            toolbar={<PatientCreateToolbar permissions={permissions} />}
-            defaultValue={{ role: 'patient', phone: '+600000000001' }}
+            toolbar={<DoctorCreateToolbar permissions={permissions} />}
+            defaultValue={{ role: 'user' }}
         >
-          <TextInput source='name' />
-          <TextInput source='password' />
-          <TextInput source='role' />
-          <TextInput source='phone' />
-          <TextInput source='timestamp' defaultValue={+ new Date()} />
+            <TextInput source="name" validate={[required()]} />
+            {permissions === 'admin' && (
+                <TextInput source="role" validate={[required()]} />
+            )}
         </SimpleForm>
     </Create>
 );
 
-export const PatientEdit = ({ permissions, ...props }) => (
-    <Edit title={<PatientTitle />} {...props}>
+export const DoctorEdit = ({ permissions, ...props }) => (
+    <Edit title={<DoctorTitle />} {...props}>
         <TabbedForm defaultValue={{ role: 'user' }}>
             <FormTab label="user.form.summary">
                 {permissions === 'admin' && <DisabledInput source="id" />}
@@ -132,8 +128,8 @@ export const PatientEdit = ({ permissions, ...props }) => (
     </Edit>
 );
 
-export const PatientShow = ({ permissions, ...props }) => (
-    <Show title={<PatientTitle />} {...props}>
+export const DoctorShow = ({ permissions, ...props }) => (
+    <Show title={<DoctorTitle />} {...props}>
         <TabbedShowLayout>
             <Tab label="user.form.summary">
                 <TextField source="id" />

@@ -1,11 +1,11 @@
 import React from 'react';
+
 import {
     Create,
     Datagrid,
     DisabledInput,
     Edit,
     EditButton,
-    DeleteButton,
     Filter,
     FormTab,
     List,
@@ -27,14 +27,50 @@ import {
     InputAdornment,
     SearchIcon,
 } from 'react-admin';
-import BookIcon from '@material-ui/icons/Book';
 
 var faker = require('faker');
+//const token = localStorage.getItem('token');
+//filter={{ patientId: 3 }}
+
+const PulseFilter = ({ permissions, ...props }) => (
+    <Filter {...props}>
+        <TextInput
+            label="user.list.search"
+            source="q"
+            alwaysOn
+            InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                        <SearchIcon color="disabled" />
+                    </InputAdornment>
+                ),
+            }}
+        />
+        <TextInput source="name" />
+        {permissions === 'admin' ? <TextInput source="role" /> : null}
+    </Filter>
+);
 
 const patientId = (localStorage.getItem('patientId') ? localStorage.getItem('patientId') : 1)
 const role = localStorage.getItem('role');
 
-export const PulseIcon = BookIcon;
+console.log('username='+localStorage.getItem('username'))
+
+export const PulseList1 = ({ permissions, ...props }) => (
+    <List 
+    {...props} 
+    filter={{ patientId: patientId }}
+    >
+        <Datagrid>
+            <TextField source='id' />
+            <TextField source='patientId' />
+            <TextField source='timestamp' />
+            <TextField source='bpm' />
+            <TextField source='status' />
+            <EditButton basePath="/pulses" />
+        </Datagrid>
+    </List>
+);
 
 export const PulseList = ({ permissions, ...props }) => {
     console.log(+ new Date())
@@ -55,8 +91,8 @@ export const PulseList = ({ permissions, ...props }) => {
 
 
     {permissions === 'patient' && (
-            <List
-            {...props}
+            <List 
+            {...props} 
             filter={{ patientId: patientId }}
             >
                 <Datagrid>
@@ -69,25 +105,13 @@ export const PulseList = ({ permissions, ...props }) => {
                 </Datagrid>
             </List>
     )}
-
+            
     </span>;
 };
 
-
 const PulseTitle = ({ record }) => {
-    return <span>Pulse {record ? `"${record.title}"` : ''}</span>;
+    return <span>Pulse {record ? `"${record.patientId}"` : ''}</span>;
 };
-
-export const PulseCreate = (props) => (
-    <Create title="Create a Pulse" {...props}>
-        <SimpleForm redirect="/pulses">
-          <NumberInput source='patientId' defaultValue={faker.random.objectElement({one: 1, two: 2, three: 3})} />
-          <NumberInput source='timestamp' defaultValue={+ new Date()} />
-          <NumberInput source='bpm' defaultValue={faker.random.number({min:60, max:200})} />
-          <NumberInput source='status' defaultValue ={0} />
-        </SimpleForm>
-    </Create>
-);
 
 export const PulseEdit = (props) => (
     <Edit title={<PulseTitle />} {...props}>
@@ -97,7 +121,17 @@ export const PulseEdit = (props) => (
             <NumberInput source='timestamp' />
             <NumberInput source='bpm' />
             <NumberInput source='status' />
-            <DisabledInput label="Nb views" source="views" />
         </SimpleForm>
     </Edit>
+);
+
+export const PulseCreate = (props) => (
+    <Create title="Create a Pulse" {...props}>
+        <SimpleForm>
+        <NumberInput source='patientId' defaultValue={faker.random.objectElement({one: 1, two: 2, three: 3 , four: 4, five: 5})} />
+        <NumberInput source='timestamp' defaultValue={+ new Date()} />
+        <NumberInput source='bpm' defaultValue={faker.random.number({min:60, max:200})} />
+        <NumberInput source='status' defaultValue ={0} />
+        </SimpleForm>
+    </Create>
 );

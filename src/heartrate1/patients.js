@@ -63,12 +63,9 @@ export const PatientList = ({ permissions, ...props }) => (
             }
             medium={
                 <Datagrid hover={false}>
-                    <TextField source='id' />
-                    <TextField source='name' />
-                    <TextField source='password' />
-                    <TextField source='role' />
-                    <TextField source='phone' />
-                    <TextField source='timestamp' />
+                    <TextField source="id" />
+                    <TextField source="name" />
+                    {permissions === 'admin' && <TextField source="role" />}
                     <EditButton />
                     <ShowButton />
                 </Datagrid>
@@ -105,13 +102,12 @@ export const PatientCreate = ({ permissions, ...props }) => (
     <Create {...props}>
         <SimpleForm
             toolbar={<PatientCreateToolbar permissions={permissions} />}
-            defaultValue={{ role: 'patient', phone: '+600000000001' }}
+            defaultValue={{ role: 'user' }}
         >
-          <TextInput source='name' />
-          <TextInput source='password' />
-          <TextInput source='role' />
-          <TextInput source='phone' />
-          <TextInput source='timestamp' defaultValue={+ new Date()} />
+            <TextInput source="name" validate={[required()]} />
+            {permissions === 'admin' && (
+                <TextInput source="role" validate={[required()]} />
+            )}
         </SimpleForm>
     </Create>
 );
