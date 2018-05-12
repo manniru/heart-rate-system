@@ -23,14 +23,14 @@ import Page1 from './Page1'
 import Page2 from './Page2'
 import Page3 from './Page3'
 
-//var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
-var dataProvider = jsonServerProvider('http://localhost:3001');
+var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
+//var dataProvider = jsonServerProvider('http://localhost:3001');
 console.log(process.env.API_SERVER);
 
 
 const App = () => (
   <Admin
-  title="Cloud-Based Realtime Heart Rate Monitoring System"
+  title={"Cloud-Based Realtime Heart Rate Monitoring System: "}
   authProvider={authProvider}
   dataProvider={dataProvider}
   dashboard={Dashboard}
