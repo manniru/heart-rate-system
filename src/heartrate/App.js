@@ -24,7 +24,7 @@ import Page2 from './Page2'
 import Page3 from './Page3'
 
 //const API_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_API_URL : process.env.REACT_APP_DEV_API_URL;
-const API_URL = process.env.NODE_ENV === 'production' ? 'http://35.232.234.165:3001' : process.env.REACT_APP_DEV_API_URL;
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://35.232.234.165:3001' : process.env.REACT_APP_DEV_API_URL;
 
 //var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
 var dataProvider = jsonServerProvider(API_URL);

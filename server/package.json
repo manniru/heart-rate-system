@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "json-server": "^0.12.2",
     "ra-language-french": "^2.0.0-RC2"
   }
 }
