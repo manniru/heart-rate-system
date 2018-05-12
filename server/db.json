@@ -6,6 +6,7 @@
       "timestamp": 1526101916250,
       "name": "doctor1",
       "password": "doctor1",
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/abdulhyeuk/128.jpg",
       "id": 1
     },
     {
@@ -14,6 +15,7 @@
       "timestamp": 1526102005110,
       "name": "doctor2",
       "password": "doctor2",
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/sharvin/128.jpg",
       "id": 2
     }
   ],
@@ -24,6 +26,7 @@
       "timestamp": 1526102115095,
       "name": "patient1",
       "password": "patient1",
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/SlaapMe/128.jpg",
       "id": 1
     },
     {
@@ -32,6 +35,7 @@
       "timestamp": 1526102165830,
       "name": "patient2",
       "password": "patient2",
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/illyzoren/128.jpg",
       "id": 2
     },
     {
@@ -40,6 +44,7 @@
       "timestamp": 1526102180911,
       "name": "patient3",
       "password": "patient3",
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/kostaspt/128.jpg",
       "id": 3
     }
   ],
@@ -106,6 +111,40 @@
       "bpm": 85,
       "status": 0,
       "id": 9
+    },
+    {
+      "patientId": 2,
+      "timestamp": 1526105409337,
+      "bpm": 159,
+      "status": 0,
+      "id": 10
     }
-  ]
+  ],
+  "comments": [{
+			"id": 1,
+			"author": {},
+			"post_id": 6,
+			"body": "Queen, tossing her head through the wood. 'If it had lost something; and she felt sure it.",
+			"created_at": ""
+		},
+		{
+			"id": 2,
+			"author": {
+				"name": "Kiley Pouros",
+				"email": "kiley@gmail.com"
+			},
+			"post_id": 9,
+			"body": "White Rabbit: it was indeed: she was out of the ground--and I should frighten them out of its right paw round, 'lives a March Hare. 'Sixteenth,'.",
+			"created_at": ""
+		},
+		{
+			"id": 3,
+			"author": {
+				"name": "Justina Hegmann"
+			},
+			"post_id": 3,
+			"body": "I'm not Ada,' she said, 'and see whether it's marked \"poison\" or.",
+			"created_at": ""
+		}
+	]
 }

@@ -26,6 +26,16 @@ import {
 import { InputAdornment } from 'material-ui/Input';
 import PeopleIcon from '@material-ui/icons/People';
 import SearchIcon from '@material-ui/icons/Search';
+
+var faker = require('faker');
+
+// const PatientPhoto = () => ( <img src={faker.image.avatar()} alt="" /> ));
+const Photo = ({ record }) => (
+    <span>
+        {record ? <img src={record.photo} alt="Photo" /> : ''}
+    </span>
+);
+
 export const PatientIcon = PeopleIcon;
 
 const PatientFilter = ({ permissions, ...props }) => (
@@ -64,6 +74,7 @@ export const PatientList = ({ permissions, ...props }) => (
             medium={
                 <Datagrid hover={false}>
                     <TextField source='id' />
+                    <Photo />
                     <TextField source='name' />
                     <TextField source='password' />
                     <TextField source='role' />

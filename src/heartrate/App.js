@@ -11,12 +11,21 @@ import { DoctorList, DoctorEdit, DoctorCreate, DoctorIcon, DoctorShow } from './
 import { PatientList, PatientEdit, PatientCreate, PatientIcon, PatientShow } from './patients';
 import { PulseList, PulseEdit, PulseCreate, PulseIcon } from './pulses';
 import { PostCreate, PostEdit } from './posts';
+import {
+    CommentList,
+    CommentEdit,
+    CommentCreate,
+    CommentShow,
+    CommentIcon,
+} from './comments';
+
 import Page1 from './Page1'
 import Page2 from './Page2'
 import Page3 from './Page3'
 
-var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
-//var dataProvider = jsonServerProvider('http://localhost:3001');
+//var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
+var dataProvider = jsonServerProvider('http://localhost:3001');
+console.log(process.env.API_SERVER);
 
 
 const App = () => (
@@ -51,7 +60,6 @@ const App = () => (
             icon={Accessible}
             show={PatientShow}
     />
-
 
   </Admin>
 );

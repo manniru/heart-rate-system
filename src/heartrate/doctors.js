@@ -26,6 +26,13 @@ import {
 import { InputAdornment } from 'material-ui/Input';
 import PeopleIcon from '@material-ui/icons/People';
 import SearchIcon from '@material-ui/icons/Search';
+
+const Photo = ({ record }) => (
+    <span>
+        {record ? <img src={record.photo} alt="Photo" /> : ''}
+    </span>
+);
+
 export const DoctorIcon = PeopleIcon;
 
 const DoctorFilter = ({ permissions, ...props }) => (
@@ -64,6 +71,7 @@ export const DoctorList = ({ permissions, ...props }) => (
             medium={
                 <Datagrid hover={false}>
                   <TextField source='id' />
+                  <Photo />
                   <TextField source='name' />
                   <TextField source='password' />
                   <TextField source='role' />
