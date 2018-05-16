@@ -1,0 +1,22 @@
+# Tests
+//var faker = require('faker');
+//var moment = require('moment')
+//pm.globals.set("date", moment().format("MM/DD/YYYY"))
+
+var uid = Math.floor(Math.random() * 5 + 1)
+var bpm = Math.floor(Math.random() * 100 + 100)
+pm.environment.set('uid', uid);
+pm.environment.set('bpm', bpm);
+pm.environment.set('time', + new Date());
+
+//var randomName = faker.name.findName();
+//pm.environment.set('name', randomName);
+
+
+# Body
+POST application/json : http://localhost:3001/pulses
+{
+	"uid": {{uid}},
+	"time": {{time}},
+	"bpm": {{bpm}}
+}
