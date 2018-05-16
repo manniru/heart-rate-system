@@ -24,16 +24,16 @@ import Page2 from './Page2'
 import Page3 from './Page3'
 
 //const API_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PROD_API_URL : process.env.REACT_APP_DEV_API_URL;
-const API_URL = process.env.NODE_ENV === 'production' ? 'http://35.232.234.165:3001' : process.env.REACT_APP_DEV_API_URL;
-
+//const API_URL = process.env.NODE_ENV === 'production' ? 'http://35.232.234.165:3001' : process.env.REACT_APP_DEV_API_URL;
+const API_URL = 'http://localhost:3001';
 //var dataProvider = jsonServerProvider('http://35.232.234.165:3001');
 var dataProvider = jsonServerProvider(API_URL);
 console.log(API_URL);
 
-
+//+ process.env.NODE_ENV+"::"+API_URL
 const App = () => (
   <Admin
-  title={"Cloud-Based Realtime Heart Rate Monitoring System: "+ process.env.NODE_ENV+"::"+API_URL}
+  title={"Cloud-Based Realtime Heart Rate Monitoring System"}
   authProvider={authProvider}
   dataProvider={dataProvider}
   dashboard={Dashboard}
