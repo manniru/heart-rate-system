@@ -43,3 +43,8 @@ password=patient1
 User2
 username=patient2
 password=patient2
+
+# Links
+https://pulsesensor.com/pages/pulse-sensor-amped-arduino-v1dot1
+https://code.google.com/archive/p/pulse-sensor/downloads
+http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Sensors/Biometric/PulseSensorAmpd%20-%20Schematic.pdf

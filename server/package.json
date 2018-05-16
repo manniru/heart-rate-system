@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "google-sheets-wrapper": "^1.0.4",
     "json-server": "^0.12.2",
     "ra-language-french": "^2.0.0-RC2",
     "twilio": "^3.17.0"

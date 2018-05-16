@@ -8,12 +8,14 @@ module.exports = (req, res, next) => {
     if (req.body.bpm >=150) {
         var message = "This is SMS Message From Heart Rate Monitoring System. Your Patient with ID="+req.body.uid+" his Heart Rate is  "+req.body.bpm+" is Getting High Please, try to Call him, Thank You";
         
+        /* ENABLE HERE TO SEND SMS
         client.messages.create({
             body: message,
             to: config.doctorphone,
             from: config.phone
         })
         .then((message) => console.log(message.sid));
+        */
 
         console.log("SMS Message Sent! to Phone:" + config.phone +' , Message '+ message);
     }
