@@ -38,7 +38,7 @@ export const PulseIcon = BookIcon;
 
 export const PulseList = ({ permissions, ...props }) => {
     console.log(+ new Date())
-    return <span>mm
+    return <span>
 
    {permissions === 'admin' && (
             <List {...props}>
