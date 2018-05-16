@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /raspberrypi/node_modules/*
-/server/node_modules/
+/server/node_modules/*
 /server/config.js
 node_modules/
 
