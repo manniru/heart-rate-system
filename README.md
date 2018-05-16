@@ -15,6 +15,23 @@ yarn build
 firebase deploy
 ```
 
+## Run on Local
+```
+cd /Users/mannir/GitHub/heart-rate-system/server
+json-server --watch db.json --port 3001
+```
+
+## Run on Cloud
+```
+cd /root/heart-rate-system
+json-server --watch db.json --port 3001
+
+cd /root/heart-rate-system
+yarn start
+
+```
+
+
 Login Details
 Username=admin
 Password=admin
