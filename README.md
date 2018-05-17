@@ -18,7 +18,7 @@ firebase deploy
 ## Run on Local
 ```
 cd /Users/mannir/GitHub/heart-rate-system/server
-json-server --watch db.json --port 3001
+json-server --watch db.json --middlewares ./middleware.js --port 3001
 ```
 
 ## Run on Cloud
